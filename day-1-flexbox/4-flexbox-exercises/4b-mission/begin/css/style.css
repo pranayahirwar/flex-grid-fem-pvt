@@ -140,6 +140,19 @@ figcaption a {
     color: var(--color8);
 }
 
+/*
+#################################################
+# CSS Styles for 4B-Mission Exercise
+#################################################
+*/
+#mission h1 {
+    font-size: 3rem;
+}
+
+#mission img {
+    max-height: 100px;
+    /* max-width: 100px; */
+}
 
 /* turn on flexbox here - prior to this, elements stacked individually as blocks */
 
@@ -156,12 +169,21 @@ figcaption a {
     figure img {
         object-position: 0;
     }
+
+    /* CSS Styles for 4B-Mission Exercise */
+    .missiontext {
+        display: flow-root;
+    }
+    #mission img {
+        max-height: 200px;
+
+        /* Below two Properties are responsible for making text slant */
+        float: left;
+        shape-outside: polygon(55% 0, 55% 0, 35% 90%, 50% 0%);
+    }
 }
 
 @media (min-width: 800px) {
-    section h2 {
-        margin-left: 100px;
-    }
     section li {
         flex-basis: 32.5%;
     }

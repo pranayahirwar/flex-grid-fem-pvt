@@ -70,6 +70,15 @@ header ul {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-flow: row wrap;
+}
+
+header li:first-child {
+    flex-basis: 100%;
+    /* How & Why adding the below property bringing my image to middle? for Mobile and 
+    Tablet View */
+    text-align: center;
+    margin: 0 auto;
 }
 
 header li {
@@ -82,9 +91,7 @@ header li a {
     color: var(--color1); /*Helps to change TEXT Color of Link*/
     font-size: 1.5rem;
 }
-header li:first-child {
-    margin: 0 auto;
-}
+
 /*
 #################################################
 # Section Part
@@ -266,6 +273,27 @@ footer ul {
 
     /*
     #################################################
+    # Header & Nav - Remeber to move this up
+    #################################################
+    */
+    header ul {
+        justify-content: center;
+        /*This gap is created based on Text size of <li> element*/
+        gap: 1em;
+    }
+
+    header a {
+        color: var(--color1);
+        background-color: transparent; /*helps us remove background color which is added in mobile view*/
+    }
+
+    header a:hover {
+        color: greenyellow;
+        background-color: transparent;
+    }
+    
+    /*
+    #################################################
     # Styling related to Section
     #################################################
     */
@@ -311,6 +339,7 @@ footer ul {
         align-items: flex-start;
         gap: 22%;
     }
+
 }
 
 /* At this breakpoint, transition to 3 figures per line */
@@ -329,13 +358,12 @@ footer ul {
     */
     header ul {
         justify-content: flex-end;
-        order: 2;
-        gap: 1em;
     }
 
     header li:first-child {
-        /* First child is our logo, because we are using flex-end */
+        /* First child is our logo, check HTML */
         order: 2; /*By default order value is 0*/
+        flex-basis: auto; /*flex-basis default value is auto, we are changing it's values in tablet media query, because of which we need to resize it. So that we can display our logo in middle and distribute space evenly in some single line*/
     }
 
     header li:nth-child(2),

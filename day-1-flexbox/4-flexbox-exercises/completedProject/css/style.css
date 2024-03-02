@@ -14,7 +14,11 @@ Clearly there is more you could place in variables, up to you if you want to use
     --color10: #9b2226;
 }
 
-/* generic site styles */
+/*
+#################################################
+# generic site styles
+#################################################
+*/
 
 html {
     box-sizing: border-box;
@@ -33,6 +37,31 @@ body {
     margin: 0;
 }
 
+/*
+#################################################
+# Mobile View Start from Here.
+#################################################
+*/
+
+/* Initial mobile layout: a series of images stacked on top of each other with the figure caption over the image. 
+
+Creating Mobile first design. Because of which these are the common properties which will
+be inherited by other media query too.
+*/
+
+/*
+#################################################
+# Header and Nav Part
+#################################################
+*/
+
+
+/*
+#################################################
+# Section Part
+#################################################
+*/
+
 section {
     max-width: 1200px;
     margin: 0 auto;
@@ -42,20 +71,13 @@ section {
 section h2 {
     font-size: 2.5rem;
 }
-
-/* Initial mobile layout: a series of images stacked on top of each other with the figure caption over the image. */
-
-/*
-Creating Mobile first design. Because of which these are the common properties which
-will be inherited by other media query too.
- */
-ul {
+section ul {
     /* Helps to remove default indentation of <ul> element */
     margin: 0;
     padding: 0;
 }
 
-li {
+section li {
     margin-bottom: 1rem; /*Helps to add space between imgs when they are stacked in rows because of flexbox */
     list-style-type: none; /*Helps to remove dots from each list */
 }
@@ -204,6 +226,12 @@ footer ul {
     gap: 3%;
 }
 
+/*
+#################################################
+# Tablet View Start from Here
+#################################################
+*/
+
 @media (min-width: 550px) {
     /*All the properties defined inside will be carried out to media query greater than 550px */
     ul {
@@ -250,6 +278,13 @@ footer ul {
 }
 
 /* At this breakpoint, transition to 3 figures per line */
+
+
+/*
+#################################################
+# Laptop View Start from Here
+#################################################
+*/
 
 @media (min-width: 800px) {
     li {

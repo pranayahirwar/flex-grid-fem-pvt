@@ -1,0 +1,267 @@
+/* colors - see style guide for docs. 
+Clearly there is more you could place in variables, up to you if you want to use them. My answer does not go beyond colors to keep the code easier to read. */
+
+:root {
+    --color1: #001219;
+    --color2: #005f73;
+    --color3: #3d9397;
+    --color4: #94d28d;
+    --color5: #e9d8a6;
+    --color6: #ee9800;
+    --color7: #ca6702;
+    --color8: #bb3e03;
+    --color9: #ae2012;
+    --color10: #9b2226;
+}
+
+/* generic site styles */
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #dbe5de;
+    padding: 0;
+    margin: 0;
+}
+
+section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+section h2 {
+    font-size: 2.5rem;
+}
+
+/* Initial mobile layout: a series of images stacked on top of each other with the figure caption over the image. */
+
+/*
+Creating Mobile first design. Because of which these are the common properties which
+will be inherited by other media query too.
+ */
+ul {
+    /* Helps to remove default indentation of <ul> element */
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 1rem; /*Helps to add space between imgs when they are stacked in rows because of flexbox */
+    list-style-type: none; /*Helps to remove dots from each list */
+}
+
+.color2,
+.color2 a:hover {
+    border-color: var(--color2);
+    color: var(--color2);
+}
+
+.color3,
+.color3 a:hover {
+    border-color: var(--color3);
+    color: var(--color3);
+}
+
+.color4,
+.color4 a:hover {
+    border-color: var(--color4);
+    color: var(--color4);
+}
+.color6,
+.color6 a:hover {
+    border-color: var(--color6);
+    color: var(--color6);
+}
+
+.color7,
+.color7 a:hover {
+    /*Why .color a:hover because, we want to target link tag which is inside figure whose border color is color7 */
+    border-color: var(--color7);
+    color: var(--color7);
+}
+
+.color8,
+.color8 a:hover {
+    border-color: var(--color8);
+    color: var(--color8);
+}
+
+/*
+#################################################
+# CSS Styles for 4B-Mission Exercise
+#################################################
+*/
+#mission h1 {
+    font-size: 3rem;
+}
+
+#mission img {
+    max-height: 100px;
+    /* max-width: 100px; */
+}
+
+figure {
+    /*Figure is an element which contain img and figcaption */
+
+    margin: 0; /*Removing default indentation set by figure element and browser */
+    padding: 0; /*Removing default indentation set by figure element and browser */
+    position: relative; /*This property is used for figcaption, we want figcaption to display over image present inside figure. */
+    max-height: 400px; /*helps to avoid long images in mobile view */
+    overflow: hidden; /*helps to remove overflow of an images because of max-height property */
+
+    border-left-style: solid; /*helps to create the border effect you are seeing. border-radius is important for this effect */
+    border-top-style: solid; /*helps to create the border effect you are seeing. border-radius is important for this effect */
+
+    border-width: 10px;
+    border-radius: 35px;
+}
+
+figcaption {
+    position: absolute;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.5); /*Create a white box with some Opacity*/
+    width: 100%; /*makes figcaption take full width as of flexbox child container*/
+}
+
+figure img {
+    width: 100%; /*helps to make our img responsive (It's just an gimmick). helps to take full width of the flexbox child */
+    margin-bottom: -4px; /*helps to remove a small white strip in the  */
+    /* object-fit: cover; */ /*helps to set img how much zoon in-out we want but we can't be specific*/
+}
+
+a {
+    display: block; /*By default link are inline element, because of which we have to click over text then only we can navigate, but block property helps to expland clickable area */
+    text-decoration: none; /*It's a shorthand property, Helps to remove underline from link */
+    color: var(--color1); /*Helps to change TEXT Color of Link*/
+    font-size: 2rem;
+    padding-left: 1rem; /*Moves <a> element & It's text little bit right */
+}
+
+/*
+#################################################
+# CSS Styles for 4C-Footer Exercise
+#################################################
+*/
+
+.footer-color {
+    max-width: 1200px;
+    margin: 1rem auto;
+    padding: 0 1rem;
+
+    /* border: 1px solid blueviolet; */ /*For debuggin*/
+}
+footer {
+    padding: 1rem 1rem;
+    background-color: var(--color5);
+
+    /*
+  Note: Introducing new div in HTML which wraps footer don't requires to 
+  create an border of same color as webpage background color & certain width
+
+  We have to use border with this border property to avoid the bg color which is applying
+  all over on
+  - content
+  - margin
+  - border
+  which we Are setting up one line above.
+  To learn what Actually is happening, remove and reapply to see the changes.
+  
+  border: 1rem solid #DBE5DE;
+  border-radius: 30px;
+  */
+
+    /* border: 1px solid red; */ /*For debuggin*/
+    border-radius: 30px;
+
+    h4 {
+        font-size: 1.5rem;
+        margin: 0px 0px 10px 0px;
+        padding: 0px 0px 0px 0px;
+    }
+
+    address {
+        font-weight: 700;
+        font-style: normal;
+    }
+}
+
+footer ul {
+    margin: 10px 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 3%;
+}
+
+@media (min-width: 550px) {
+    /*All the properties defined inside will be carried out to media query greater than 550px */
+    ul {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 2%;
+    }
+
+    li {
+        flex-basis: 49%;
+    }
+
+    /*
+    #################################################
+    # CSS Styles for 4B-Mission Exercise
+    #################################################
+    */
+    .missiontext {
+        display: flow-root;
+
+        p {
+            line-height: 2;
+        }
+    }
+    #mission img {
+        max-height: 200px;
+
+        /* Below two Properties are responsible for making text slant */
+        float: left;
+        shape-outside: polygon(55% 0, 55% 0, 35% 90%, 50% 0%);
+    }
+
+    /*
+    #################################################
+    # CSS Styles for 4C-Footer Exercise
+    #################################################
+    */
+    footer {
+        display: flex;
+        align-items: center;
+        align-items: flex-start;
+        gap: 22%;
+    }
+}
+
+/* At this breakpoint, transition to 3 figures per line */
+
+@media (min-width: 800px) {
+    li {
+        flex-basis: 32%; /*Resize flexbox children boxes to different size. Remember we are Inheriting properties from the above hence we are calculating the percentage value 32% also keeping in mind GAP which is 2%*/
+    }
+
+    /*
+    #################################################
+    # CSS Styles for 4C-Footer Exercise
+    #################################################
+    */
+    footer {
+        gap: 16%;
+    }
+}

@@ -51,11 +51,40 @@ be inherited by other media query too.
 
 /*
 #################################################
-# Header and Nav Part
+# Header and Nav
 #################################################
 */
+.header {
+    max-width: 1200px;
+    margin: 1rem auto;
+    padding: 0 1rem;
+}
 
+header {
+    background-color: var(--color4);
+    border-radius: 30px;
+    padding: 1rem;
+}
 
+header ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header li {
+    list-style-type: none;
+}
+
+header li a {
+    display: block; /*By default link are inline element, because of which we have to click over text then only we can navigate, but block property helps to expland clickable area */
+    text-decoration: none; /*It's a shorthand property, Helps to remove underline from link */
+    color: var(--color1); /*Helps to change TEXT Color of Link*/
+    font-size: 1.5rem;
+}
+header li:first-child {
+    margin: 0 auto;
+}
 /*
 #################################################
 # Section Part
@@ -161,7 +190,7 @@ figure img {
     /* object-fit: cover; */ /*helps to set img how much zoon in-out we want but we can't be specific*/
 }
 
-a {
+section a {
     display: block; /*By default link are inline element, because of which we have to click over text then only we can navigate, but block property helps to expland clickable area */
     text-decoration: none; /*It's a shorthand property, Helps to remove underline from link */
     color: var(--color1); /*Helps to change TEXT Color of Link*/
@@ -234,13 +263,20 @@ footer ul {
 
 @media (min-width: 550px) {
     /*All the properties defined inside will be carried out to media query greater than 550px */
-    ul {
+
+    /*
+    #################################################
+    # Styling related to Section
+    #################################################
+    */
+
+    section ul {
         display: flex;
         flex-flow: row wrap;
         gap: 2%;
     }
 
-    li {
+    section li {
         flex-basis: 49%;
     }
 
@@ -279,7 +315,6 @@ footer ul {
 
 /* At this breakpoint, transition to 3 figures per line */
 
-
 /*
 #################################################
 # Laptop View Start from Here
@@ -287,7 +322,39 @@ footer ul {
 */
 
 @media (min-width: 800px) {
-    li {
+    /*
+    #################################################
+    # Header & Nav
+    #################################################
+    */
+    header ul {
+        justify-content: flex-end;
+        order: 2;
+        gap: 1em;
+    }
+
+    header li:first-child {
+        /* First child is our logo, because we are using flex-end */
+        order: 2; /*By default order value is 0*/
+    }
+
+    header li:nth-child(2),
+    header li:nth-child(3) {
+        order: 1;
+    }
+
+    header li:nth-child(4),
+    header li:nth-child(5) {
+        order: 3;
+    }
+
+    /*
+    #################################################
+    # Section
+    #################################################
+    */
+
+    section li {
         flex-basis: 32%; /*Resize flexbox children boxes to different size. Remember we are Inheriting properties from the above hence we are calculating the percentage value 32% also keeping in mind GAP which is 2%*/
     }
 

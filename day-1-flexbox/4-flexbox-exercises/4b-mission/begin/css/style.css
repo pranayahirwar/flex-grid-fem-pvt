@@ -14,7 +14,6 @@ Clearly there is more you could place in variables, up to you if you want to use
     --color10: #9b2226;
 }
 
-
 /* generic site styles */
 
 html {
@@ -28,8 +27,8 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #DBE5DE;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #dbe5de;
     padding: 0;
     margin: 0;
 }
@@ -44,7 +43,6 @@ section h2 {
     font-size: 2.5rem;
 }
 
-
 /*****************
 New styles begin here and continue to the end of the page 
 ****************/
@@ -54,7 +52,6 @@ section ul {
     padding: 0;
     margin: 0;
 }
-
 
 /* To keep mobile screens from being stupid long, consider setting a max height on the images and hide the overflow. 
 
@@ -70,7 +67,6 @@ figure {
     border-style: solid;
     border-radius: 5px;
 }
-
 
 /* strange open space at the bottom of the box which shows through the transparent overlay - this kills it */
 
@@ -91,7 +87,6 @@ figcaption {
     padding: 0;
 }
 
-
 /* make the a have a big clickable area with display: block - the link occupies its containing element, the figcaption */
 
 figcaption a {
@@ -100,7 +95,6 @@ figcaption a {
     text-decoration: none;
     color: var(--color1);
 }
-
 
 /* style is doing double duty, styling border color and hover color. Only one declaration usually applies though.  */
 
@@ -154,6 +148,50 @@ figcaption a {
     /* max-width: 100px; */
 }
 
+/*
+#################################################
+# CSS Styles for 4C-Footer Exercise
+#################################################
+*/
+footer {
+    /* max-width: 1167px; */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1rem;
+
+    background-color: var(--color5);
+    /*
+    We have to use border with this border property to avoid the bg color which is applying
+    all over on
+    - content
+    - margin
+    - border
+    which we Are setting up one line above.
+    To learn what Actually is happening, remove and reapply to see the changes.
+    */
+    border: 1rem solid #DBE5DE;
+    border-radius: 30px;
+
+    h4 {
+        font-size: 1.5rem;
+        margin: 0px 0px 10px 0px;
+        padding: 0px 0px 0px 0px;
+    }
+
+    address {
+        font-weight: 700;
+        font-style: normal;
+    }
+}
+
+footer ul {
+    margin: 10px 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    gap: 3%;
+}
+
 /* turn on flexbox here - prior to this, elements stacked individually as blocks */
 
 @media (min-width: 550px) {
@@ -170,9 +208,17 @@ figcaption a {
         object-position: 0;
     }
 
-    /* CSS Styles for 4B-Mission Exercise */
+    /*
+    #################################################
+    # CSS Styles for 4B-Mission Exercise
+    #################################################
+    */
     .missiontext {
         display: flow-root;
+        
+        p {
+            line-height: 2;
+        }
     }
     #mission img {
         max-height: 200px;
@@ -181,10 +227,32 @@ figcaption a {
         float: left;
         shape-outside: polygon(55% 0, 55% 0, 35% 90%, 50% 0%);
     }
+
+    /*
+    #################################################
+    # CSS Styles for 4C-Footer Exercise
+    #################################################
+    */
+    footer {
+        display: flex;
+        align-items: center;
+        gap: 22%;
+    }
 }
 
 @media (min-width: 800px) {
     section li {
         flex-basis: 32.5%;
+    }
+
+    /*
+    #################################################
+    # CSS Styles for 4C-Footer Exercise
+    #################################################
+    */
+    footer {
+        /* max-width: 1167px; */
+        margin: 0 auto 1rem auto;
+        gap: 16%;
     }
 }

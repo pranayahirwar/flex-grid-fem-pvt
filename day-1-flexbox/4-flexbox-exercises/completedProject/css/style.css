@@ -74,9 +74,12 @@ header ul {
 }
 
 header li:first-child {
+    /* This part is use to make img center inside li*/
     flex-basis: 100%;
-    /* How & Why adding the below property bringing my image to middle? for Mobile and 
-    Tablet View */
+    /* 
+    How & Why adding the below property bringing my image to middle? for Mobile and Tablet View
+    Ans: text-align is a property which works on inline elements (like img, span, a, etc.) and inline-block elements. It won't center block-level elements like div or p, unless those elements have been turned into inline-block elements.
+    */
     text-align: center;
     margin: 0 auto;
 }
@@ -90,6 +93,28 @@ header li a {
     text-decoration: none; /*It's a shorthand property, Helps to remove underline from link */
     color: var(--color1); /*Helps to change TEXT Color of Link*/
     font-size: 1.5rem;
+}
+
+/* Nav Style for Mobile View */
+header li {
+    flex-basis: 48%;
+}
+header li a {
+    /* Note this property define flex-basis again for first element (logo), but we want our logo to be 100%, but Because of specificity our logo element is still going to be 100% */
+    background-color: var(--color10);
+    margin: 0.2rem;
+    border-radius: 1rem;
+    text-align: center;
+    color: white;
+}
+
+header li a:hover {
+    color: var(--color5);
+    background-color: var(--color1);
+}
+
+nav li:first-child a {
+    background-color: transparent;
 }
 
 /*
@@ -282,16 +307,29 @@ footer ul {
         gap: 1em;
     }
 
-    header a {
-        color: var(--color1);
-        background-color: transparent; /*helps us remove background color which is added in mobile view*/
+    header li {
+        /* This helps to adpat flexbox items from mobile (2 link row) to tablet view
+        (4 link row) */
+        flex-basis: auto;
     }
 
-    header a:hover {
-        color: greenyellow;
+    header li a {
+        /*
+        Reason behind changing header a to header li a because of specificity
+        We are setting up red color bg for link in mobile view, but because our previous
+        specificity was low, hence red color is still visible in table and desktop view
+        because of which we need to increase the specificity of this css declaration
+        */
+        color: var(--color1);
+        background-color: transparent; /*helps us remove background color which is added in mobile view*/
+        margin: 0;
+    }
+
+    header li a:hover {
+        color: #ffffff;
         background-color: transparent;
     }
-    
+
     /*
     #################################################
     # Styling related to Section
@@ -339,7 +377,6 @@ footer ul {
         align-items: flex-start;
         gap: 22%;
     }
-
 }
 
 /* At this breakpoint, transition to 3 figures per line */

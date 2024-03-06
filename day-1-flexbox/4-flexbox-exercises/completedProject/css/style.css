@@ -129,6 +129,25 @@ nav li:first-child a {
 
 /*
 #################################################
+# Hero Section
+#################################################
+*/
+#hero {
+    /* border: 5px solid black; */
+    
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color7);
+    text-align: center; /* move img to center of #hero section  */
+}
+#hero img {
+    max-width: 1200px;
+    max-height: 454px;
+}
+
+/*
+#################################################
 # Section Part
 #################################################
 */
@@ -225,7 +244,7 @@ figcaption {
     so when figcaption position is absolute, it will look for parent element which contain `position: relative` property
     as in this case, it's just on element above figcaption will position itself according to this parent element other wise
     it will try to position itself according to HTML element*/
-    position: absolute; 
+    position: absolute;
     bottom: 0;
     background: rgba(255, 255, 255, 0.5); /*Create a white box with some Opacity*/
     width: 100%; /*makes figcaption take full width as of flexbox child container*/

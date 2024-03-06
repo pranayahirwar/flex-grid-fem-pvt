@@ -1,5 +1,6 @@
 /* colors - see style guide for docs. 
-Clearly there is more you could place in variables, up to you if you want to use them. My answer does not go beyond colors to keep the code easier to read. */
+Clearly there is more you could place in variables, up to you if you want to use them. My
+answer does not go beyond colors to keep the code easier to read. */
 
 :root {
     --color1: #001219;
@@ -41,12 +42,12 @@ body {
 #################################################
 # Mobile View Start from Here.
 #################################################
-*/
 
-/* Initial mobile layout: a series of images stacked on top of each other with the figure caption over the image. 
 
-Creating Mobile first design. Because of which these are the common properties which will
-be inherited by other media query too.
+Initial mobile layout: a series of images stacked on top of each other with the figure caption over the image. 
+
+Creating Mobile first design, Because of which css properties defined in mobile view will
+be inherited by other media query (view sizes, tablet or desktop).
 */
 
 /*
@@ -74,11 +75,16 @@ header ul {
 }
 
 header li:first-child {
-    /* This part is use to make img center inside li*/
+    /* logo img take full 100% in 1st row of flexbox layout*/
     flex-basis: 100%;
     /* 
-    How & Why adding the below property bringing my image to middle? for Mobile and Tablet View
-    Ans: text-align is a property which works on inline elements (like img, span, a, etc.) and inline-block elements. It won't center block-level elements like div or p, unless those elements have been turned into inline-block elements.
+    How & Why adding the below property move my image to middle for Mobile and Tablet View?
+    Ans: text-align is a property which works on inline elements (like img, span, a, etc.)
+         and inline-block elements. It won't center block-level elements like div or p, unless
+         those elements have been turned into inline-block elements.
+         
+         So, li is an block level element, but because of display:flex in ul, li element
+         turned into inline element, because of which we can use text-align property.
     */
     text-align: center;
     margin: 0 auto;
@@ -89,18 +95,21 @@ header li {
 }
 
 header li a {
-    display: block; /*By default link are inline element, because of which we have to click over text then only we can navigate, but block property helps to expland clickable area */
-    text-decoration: none; /*It's a shorthand property, Helps to remove underline from link */
-    color: var(--color1); /*Helps to change TEXT Color of Link*/
+    /*By default link are inline element, because of which we have to click over text then
+    only we can navigate, but block property helps to expland clickable area of <a> element*/
+    display: block;
+    text-decoration: none; /*Shorthand property, Helps to remove underline from link */
+    color: var(--color1); /*change TEXT Color of Link*/
     font-size: 1.5rem;
 }
 
 /* Nav Style for Mobile View */
 header li {
+    /* Note: Here flex-basis defined again for first element (logo), but we want our logo
+    to be 100% in mobile view, but Because of specificity our li element (logo) is still going to be 100% */
     flex-basis: 48%;
 }
 header li a {
-    /* Note this property define flex-basis again for first element (logo), but we want our logo to be 100%, but Because of specificity our logo element is still going to be 100% */
     background-color: var(--color10);
     margin: 0.2rem;
     border-radius: 1rem;
@@ -114,6 +123,7 @@ header li a:hover {
 }
 
 nav li:first-child a {
+    /* helps to remove bg color, which is added becaues of this property `header li a` */
     background-color: transparent;
 }
 
@@ -125,6 +135,7 @@ nav li:first-child a {
 
 section {
     max-width: 1200px;
+    /* auto value helps to place section in center */
     margin: 0 auto;
     padding: 0 1rem;
 }
@@ -181,7 +192,7 @@ section li {
 
 /*
 #################################################
-# CSS Styles for 4B-Mission Exercise
+# Section 4B-Mission Exercise
 #################################################
 */
 #mission h1 {
@@ -210,7 +221,11 @@ figure {
 }
 
 figcaption {
-    position: absolute;
+    /* tells figcaption to change it's position based on figure, because figure contain position: relative property
+    so when figcaption position is absolute, it will look for parent element which contain `position: relative` property
+    as in this case, it's just on element above figcaption will position itself according to this parent element other wise
+    it will try to position itself according to HTML element*/
+    position: absolute; 
     bottom: 0;
     background: rgba(255, 255, 255, 0.5); /*Create a white box with some Opacity*/
     width: 100%; /*makes figcaption take full width as of flexbox child container*/

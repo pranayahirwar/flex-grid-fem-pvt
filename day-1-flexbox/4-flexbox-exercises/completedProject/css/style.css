@@ -40,7 +40,7 @@ body {
 
 /*
 #################################################
-# Mobile View Start from Here.
+# Mobile View
 #################################################
 
 
@@ -148,7 +148,7 @@ nav li:first-child a {
 
 /*
 #################################################
-# Featured-print Section
+# Featured-print
 #################################################
 */
 
@@ -158,7 +158,7 @@ nav li:first-child a {
 
 /*
 #################################################
-# Section Part
+# Section
 #################################################
 */
 
@@ -221,7 +221,7 @@ section li {
 
 /*
 #################################################
-# Section 4B-Mission Exercise
+# Mission
 #################################################
 */
 #mission h1 {
@@ -276,7 +276,7 @@ section a {
 
 /*
 #################################################
-# Popular Prints Section
+# Popular Prints
 #################################################
 */
 .popular-prints-bg {
@@ -285,10 +285,9 @@ section a {
     color: white;
 }
 
-
 /*
 #################################################
-# CSS Styles for 4C-Footer Exercise
+# Footer
 #################################################
 */
 
@@ -345,7 +344,7 @@ footer ul {
 
 /*
 #################################################
-# Tablet View Start from Here
+# Tablet View
 #################################################
 */
 
@@ -354,7 +353,7 @@ footer ul {
 
     /*
     #################################################
-    # Header & Nav - Remeber to move this up
+    # Header & Nav
     #################################################
     */
     header ul {
@@ -388,7 +387,7 @@ footer ul {
 
     /*
     #################################################
-    # Styling related to Section
+    # Section
     #################################################
     */
 
@@ -404,7 +403,7 @@ footer ul {
 
     /*
     #################################################
-    # CSS Styles for 4B-Mission Exercise
+    # Mission
     #################################################
     */
     .missiontext {
@@ -439,7 +438,7 @@ footer ul {
 
     /*
     #################################################
-    # CSS Styles for 4C-Footer Exercise
+    # Footer
     #################################################
     */
     footer {
@@ -450,11 +449,9 @@ footer ul {
     }
 }
 
-/* At this breakpoint, transition to 3 figures per line */
-
 /*
 #################################################
-# Laptop View Start from Here
+# Laptop & Desktop View
 #################################################
 */
 
@@ -470,8 +467,13 @@ footer ul {
 
     header li:first-child {
         /* First child is our logo, check HTML */
-        order: 2; /*By default order value is 0*/
-        flex-basis: auto; /*flex-basis default value is auto, we are changing it's values in tablet media query, because of which we need to resize it. So that we can display our logo in middle and distribute space evenly in some single line*/
+
+        /*By default order value is 0*/
+        order: 2;
+        /*flex-basis default value is auto, we are changing it's values in tablet media 
+        query, because of which we need to resize it. So that we can display our logo in 
+        middle and distribute space evenly in some single line*/
+        flex-basis: auto;
     }
 
     header li:nth-child(2),
@@ -491,7 +493,10 @@ footer ul {
     */
 
     section li {
-        flex-basis: 32%; /*Resize flexbox children boxes to different size. Remember we are Inheriting properties from the above hence we are calculating the percentage value 32% also keeping in mind GAP which is 2%*/
+        /*Resize flexbox children boxes to different size. Remember we are Inheriting 
+        properties from the above hence we are calculating the percentage value 32% also
+        keeping in mind GAP which is 2%*/
+        flex-basis: 32%;
     }
 
     /*
@@ -504,13 +509,15 @@ footer ul {
     }
 
     #popular-prints li:last-child img {
+        /* resetting these values, which is getting inherited from tablet media query to 
+        properly show scooter img*/
         object-fit: initial;
         object-position: initial;
     }
 
     /*
     #################################################
-    # CSS Styles for 4C-Footer Exercise
+    # Footer
     #################################################
     */
     footer {

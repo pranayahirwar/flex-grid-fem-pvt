@@ -134,7 +134,7 @@ nav li:first-child a {
 */
 #hero {
     /* border: 5px solid black; */
-    
+
     max-width: 100%;
     margin: 0;
     padding: 0;
@@ -276,6 +276,18 @@ section a {
 
 /*
 #################################################
+# Popular Prints Section
+#################################################
+*/
+.popular-prints-bg {
+    padding: 0.5rem 0 2rem 0;
+    background-color: var(--color2);
+    color: white;
+}
+
+
+/*
+#################################################
 # CSS Styles for 4C-Footer Exercise
 #################################################
 */
@@ -412,6 +424,21 @@ footer ul {
 
     /*
     #################################################
+    # Popular Prints
+    #################################################
+    */
+    #popular-prints li:last-child {
+        flex-basis: 100%;
+    }
+
+    #popular-prints li:last-child img {
+        /* default value of object-fit is fill */
+        object-fit: fill;
+        object-position: 0px -350px;
+    }
+
+    /*
+    #################################################
     # CSS Styles for 4C-Footer Exercise
     #################################################
     */
@@ -465,6 +492,20 @@ footer ul {
 
     section li {
         flex-basis: 32%; /*Resize flexbox children boxes to different size. Remember we are Inheriting properties from the above hence we are calculating the percentage value 32% also keeping in mind GAP which is 2%*/
+    }
+
+    /*
+    #################################################
+    # Popular Prints
+    #################################################
+    */
+    #popular-prints li:last-child {
+        flex-basis: 32%;
+    }
+
+    #popular-prints li:last-child img {
+        object-fit: initial;
+        object-position: initial;
     }
 
     /*

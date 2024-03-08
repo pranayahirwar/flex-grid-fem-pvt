@@ -1,0 +1,127 @@
+/* colors - see style guide for docs 
+clearly there is more you could place in variables */
+
+:root {
+    --color1: #001219;
+    --color2: #005f73;
+    --color3: #3d9397;
+    --color4: #94d28d;
+    --color5: #e9d8a6;
+    --color6: #ee9800;
+    --color7: #ca6702;
+    --color8: #bb3e03;
+    --color9: #ae2012;
+    --color10: #9b2226;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #dbe5de;
+}
+
+img {
+    width: 100%;
+    /* max-height: 400px; */
+}
+
+section {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section h2 {
+    font-size: 3.375rem;
+    margin-left: 100px;
+}
+
+section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/*
+#################################################
+# MOBILE LAYOUT
+#################################################
+
+#################################################
+# Basic figure and figure caption styling 
+#################################################
+*/
+
+figure {
+    padding: 0;
+    margin: 0;
+    border: 5px solid var(--color8);
+    border-radius: 5px;
+}
+
+figcaption {
+    background-color: rgba(255, 255, 255, 0.3);
+    font-size: 1.875rem;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+figcaption a {
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+    color: var(--color1);
+}
+
+figcaption a:hover {
+    color: var(--color8);
+}
+
+/*
+#################################################
+# Overlapping Figcaption over IMG in Figure
+#################################################
+*/
+figure {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* 
+    This auto represent create grid-track (additional row) of element size which is placed inside this grid.
+    So auto is going to take space, according to figcaption height & width. If h or w is specified, grid track
+    will take that much height and width, while creating this row.
+    Note: In row, width of element won't play any role.
+    */
+    grid-template-rows: repeat(2, 1fr) auto;
+}
+
+img {
+    grid-row: 1/4;
+    grid-column: 1/2;
+}
+
+figcaption {
+    grid-row: 3/4;
+    grid-column: 1/2;
+}
+
+/*
+#################################################
+# POP-ART Layout
+#################################################
+*/
+
+
+@media (min-width: 550px) {
+}
+
+@media (min-width: 800px) {
+}

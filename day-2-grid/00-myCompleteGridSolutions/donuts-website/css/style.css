@@ -1,0 +1,357 @@
+:root {
+    --color1: #001219;
+    --color2: #005f73;
+    --color3: #3d9397;
+    --color4: #94d28d;
+    --color5: #e9d8a6;
+    --color6: #ee9800;
+    --color7: #ca6702;
+    --color8: #bb3e03;
+    --color9: #ae2012;
+    --color10: #9b2226;
+}
+
+/*
+#################################################
+# generic site styles
+#################################################
+*/
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #dbe5de;
+    padding: 0;
+    margin: 0;
+}
+
+/*
+#################################################
+# Header and Nav
+#################################################
+*/
+.header {
+    max-width: 1200px;
+    margin: 1rem auto;
+    padding: 0 1rem;
+}
+
+header {
+    background-color: var(--color4);
+    border-radius: 30px;
+    padding: 1rem;
+}
+
+header ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+header li:first-child {
+    /* logo img take full 100% in 1st row of flexbox layout*/
+    flex-basis: 100%;
+    /* 
+    How & Why adding the below property move my image to middle for Mobile and Tablet View?
+    Ans: text-align is a property which works on inline elements (like img, span, a, etc.)
+         and inline-block elements. It won't center block-level elements like div or p, unless
+         those elements have been turned into inline-block elements.
+         
+         So, li is an block level element, but because of display:flex in ul, li element
+         turned into inline element, because of which we can use text-align property.
+    */
+    text-align: center;
+    margin: 0 auto;
+}
+
+header li {
+    list-style-type: none;
+}
+
+header li a {
+    /*By default link are inline element, because of which we have to click over text then
+    only we can navigate, but block property helps to expland clickable area of <a> element*/
+    display: block;
+    text-decoration: none; /*Shorthand property, Helps to remove underline from link */
+    color: var(--color1); /*change TEXT Color of Link*/
+    font-size: 1.5rem;
+}
+
+/* Nav Style for Mobile View */
+header li {
+    /* Note: Here flex-basis defined again for first element (logo), but we want our logo
+    to be 100% in mobile view, but Because of specificity our li element (logo) is still going to be 100% */
+    flex-basis: 48%;
+}
+header li a {
+    background-color: var(--color10);
+    margin: 0.2rem;
+    border-radius: 1rem;
+    text-align: center;
+    color: white;
+}
+
+header li a:hover {
+    color: var(--color5);
+    background-color: var(--color1);
+}
+
+nav li:first-child a {
+    /* helps to remove bg color, which is added becaues of this property `header li a` */
+    background-color: transparent;
+}
+
+/*
+#################################################
+# Donut Style
+#################################################
+*/
+
+#donut-section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 1rem;
+}
+
+#donut-section h2 {
+    padding: 2rem 0 0 0px;
+}
+
+#donut-section ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#donut-section ul img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+
+    border: #32be5c solid 5px;
+    border-radius: 30px;
+}
+
+/*
+#################################################
+# Footer
+#################################################
+*/
+.footer-color {
+    max-width: 1200px;
+    margin: 1rem auto;
+    padding: 0 1rem;
+
+    /* border: 1px solid blueviolet; */ /*For debuggin*/
+}
+footer {
+    padding: 1rem 1rem;
+    background-color: var(--color5);
+
+    /*
+  Note: Introducing new div in HTML which wraps footer don't requires to 
+  create an border of same color as webpage background color & certain width
+
+  We have to use border with this border property to avoid the bg color which is applying
+  all over on
+  - content
+  - margin
+  - border
+  which we Are setting up one line above.
+  To learn what Actually is happening, remove and reapply to see the changes.
+  
+  border: 1rem solid #DBE5DE;
+  border-radius: 30px;
+  */
+
+    /* border: 1px solid red; */ /*For debuggin*/
+    border-radius: 30px;
+
+    h4 {
+        font-size: 1.5rem;
+        margin: 0px 0px 10px 0px;
+        padding: 0px 0px 0px 0px;
+    }
+
+    address {
+        font-weight: 700;
+        font-style: normal;
+    }
+}
+
+footer ul {
+    margin: 10px 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 3%;
+}
+
+/*
+#################################################
+# Tablet View
+#################################################
+*/
+
+@media (min-width: 550px) {
+    /*All the properties defined inside will be carried out to media query greater than 550px */
+
+    /*
+    #################################################
+    # Header & Nav
+    #################################################
+    */
+    header ul {
+        justify-content: center;
+        /*This gap is created based on Text size of <li> element*/
+        gap: 1em;
+    }
+
+    header li {
+        /* This helps to adpat flexbox items from mobile (2 link row) to tablet view
+        (4 link row) */
+        flex-basis: auto;
+    }
+
+    header li a {
+        /*
+        Reason behind changing header a to header li a because of specificity
+        We are setting up red color bg for link in mobile view, but because our previous
+        specificity was low, hence red color is still visible in table and desktop view
+        because of which we need to increase the specificity of this css declaration
+        */
+        color: var(--color1);
+        background-color: transparent; /*helps us remove background color which is added in mobile view*/
+        margin: 0;
+    }
+
+    header li a:hover {
+        color: #ffffff;
+        background-color: transparent;
+    }
+
+    /*
+    #################################################
+    # Donut Layout
+    #################################################
+    */
+
+    #donut-section h2 {
+        padding: 2rem 0 0 50px;
+    }
+
+    #donut-section ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        gap: 10px 10px;
+    }
+
+    #donut-section li:nth-child(1){
+        padding: 1rem;
+        grid-column: 2/3;
+        grid-row: 1/2;
+
+        z-index: 1;
+    }
+
+    #donut-section li:nth-child(2){
+        grid-column: 1/2;
+        grid-row: 1/5;
+    }
+
+    #donut-section li:nth-child(3) {
+        /* img on which we are displaying text */
+        grid-column: 2/3;
+        grid-row: 1/2;
+    }
+
+    #donut-section li:nth-child(3) img {
+        opacity: 0.4;
+    }
+
+    #donut-section li:nth-child(4) {
+        grid-column: 2/3;
+        grid-row: 2/4;
+    }
+
+    #donut-section li:nth-child(5) {
+        grid-column: 1/2;
+        grid-row: 5/7;
+    }
+
+    #donut-section li:nth-child(6) {
+        grid-column: 2/3;
+        grid-row: 4/7;
+    }
+
+    /*
+    #################################################
+    # Footer
+    #################################################
+    */
+    footer {
+        display: flex;
+        align-items: center;
+        align-items: flex-start;
+        gap: 22%;
+    }
+}
+
+/*
+#################################################
+# Laptop & Desktop View
+#################################################
+*/
+
+@media (min-width: 800px) {
+    /*
+    #################################################
+    # Header & Nav
+    #################################################
+    */
+    header ul {
+        justify-content: flex-end;
+    }
+
+    header li:first-child {
+        /* First child is our logo, check HTML */
+
+        /*By default order value is 0*/
+        order: 2;
+        /*flex-basis default value is auto, we are changing it's values in tablet media 
+        query, because of which we need to resize it. So that we can display our logo in 
+        middle and distribute space evenly in some single line*/
+        flex-basis: auto;
+    }
+
+    header li:nth-child(2),
+    header li:nth-child(3) {
+        order: 1;
+    }
+
+    header li:nth-child(4),
+    header li:nth-child(5) {
+        order: 3;
+    }
+
+    /*
+    #################################################
+    # Footer
+    #################################################
+    */
+    footer {
+        gap: 16%;
+    }
+}
